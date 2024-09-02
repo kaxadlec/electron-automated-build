@@ -60,7 +60,6 @@ const config: ForgeConfig = {
           owner: "kaxadlec",
           name: "electron-automated-build",
         },
-        prerelease: true,
         authToken: process.env.GITHUB_TOKEN,
       },
     },

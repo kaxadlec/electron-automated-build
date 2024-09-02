@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import path from "path";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -25,8 +25,17 @@ const createWindow = () => {
     );
   }
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // 개발자도구 열기 옵션
+  // mainWindow.webContents.openDevTools();
+
+  // 메뉴 바 숨기기
+  // mainWindow.setMenuBarVisibility(false);
+
+  if (process.env.NODE_ENV === "development") {
+    // mainWindow.webContents.openDevTools(); // 개발자 도구 열기
+  } else {
+    Menu.setApplicationMenu(null); // 배포 환경에서는 메뉴 바 제거
+  }
 };
 
 // This method will be called when Electron has finished
